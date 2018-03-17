@@ -21,7 +21,9 @@ public class Ruta {
         return nCiudades;
     }
 
-    public int getPosRuta(int n){ return ciudades[n]; }
+    public int getPosRuta(int n){
+        return ciudades[n];
+    }
 
     public void add(int ciudad){
 
@@ -44,5 +46,14 @@ public class Ruta {
             if(i == f) exist = true;
         }
         return exist;
+    }
+
+    public void printRuta() {
+
+        System.out.println("Mejor ruta: ");
+        for(int i : ciudades){
+            System.out.print(i + " ");
+        }
+        System.out.println("\n");
     }
 }

@@ -34,7 +34,6 @@ public class Ciudad {
     }
 
     public double calcularDistancia(Ciudad ciudad){
-        double dist = Math.sqrt( Math.pow(Math.abs(getX() - ciudad.getX()),2) +  Math.pow(Math.abs(getY() - ciudad.getY()),2));
-        return (double) Math.round(dist * 100) / 100;
+        return Math.sqrt( Math.pow(Math.abs(getX() - ciudad.getX()),2) +  Math.pow(Math.abs(getY() - ciudad.getY()),2));
     }
 }

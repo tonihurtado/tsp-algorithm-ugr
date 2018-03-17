@@ -9,14 +9,15 @@ public class TSP {
 
     public static void main(String args[]) throws FileNotFoundException {
 
-        Scanner scanner = new Scanner(new File("src/small10.txt"));
+        Scanner scanner = new Scanner(new File("examples/KROA200.tsp"));
         Problema p = Problema.leerCiudades(scanner);
 
         Ruta r = new Ruta();
-        HeuristicaVecinoMasCercano h = new HeuristicaVecinoMasCercano(p, 6);
+        HeuristicaVecinoMasCercano h = new HeuristicaVecinoMasCercano(p);
 
         r = h.ObtenerMejorRuta();
-        System.out.println("Mejor ruta coste: ");
+        r.printRuta();
+        System.out.println("Coste: ");
         System.out.println(p.coste(r));
     }
 }

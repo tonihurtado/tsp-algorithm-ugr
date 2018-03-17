@@ -57,12 +57,12 @@ public class Problema {
         return listaCiudades.get(pos);
     }
 
-    public int getNumeroCiudades() {
+    private int getNumeroCiudades() {
         return nCities;
     }
 
-    public double getDistancia(int pos1, int pos2) {
-        return listaCiudades.get(pos1).calcularDistancia(listaCiudades.get(pos2));
+    private double getDistancia(int pos1, int pos2) {
+        return matrix[pos1][pos2];
     }
 
     public double coste(Ruta ruta){

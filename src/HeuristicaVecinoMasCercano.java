@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 import java.util.Arrays;
 
 /**
@@ -7,14 +7,30 @@ import java.util.Arrays;
 public class HeuristicaVecinoMasCercano {
 
     private Problema p;
-    int init;
 
-    public HeuristicaVecinoMasCercano(Problema problema, int initPos){
+    public HeuristicaVecinoMasCercano(Problema problema){
         p = problema;
-        init = initPos;
     }
 
     public Ruta ObtenerMejorRuta(){
+
+        double cost;
+        Ruta best = new Ruta();
+
+        cost = p.coste(ObtenerRuta(0));
+
+        for (int init = 1; init < p.nCities; init ++){
+
+            Ruta r = ObtenerRuta(init);
+            if(p.coste(r) < cost ){
+                cost = p.coste(r);
+                best = r;
+            }
+        }
+        return best;
+    }
+
+    private Ruta ObtenerRuta(int init){
 
         Ruta r = new Ruta();
         r.add(init);
