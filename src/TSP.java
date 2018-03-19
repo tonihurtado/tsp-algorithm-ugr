@@ -10,14 +10,26 @@ public class TSP {
     public static void main(String args[]) throws FileNotFoundException {
 
         Scanner scanner = new Scanner(new File("examples/KROA200.tsp"));
+
         Problema p = Problema.leerCiudades(scanner);
-
-        Ruta r = new Ruta();
         HeuristicaVecinoMasCercano h = new HeuristicaVecinoMasCercano(p);
+        Ruta r = h.ObtenerMejorRuta();
 
-        r = h.ObtenerMejorRuta();
-        r.printRuta();
-        System.out.println("Coste: ");
-        System.out.println(p.coste(r));
+        for (String arg : args){
+            switch (arg){
+                case "-solucion":
+                    p.getSolucion(r);
+                    break;
+                case "-ruta":
+                    r.printRuta();
+                    break;
+                case "-coste":
+                    System.out.println("MEJOR SOLUCIÓN: " + p.coste(r));
+                    break;
+                default:
+                    System.out.println("Invalid argument.");
+                    break;
+            }
+        }
     }
 }

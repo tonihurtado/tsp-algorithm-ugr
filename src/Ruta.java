@@ -52,7 +52,7 @@ public class Ruta {
 
         System.out.println("Mejor ruta: ");
         for(int i : ciudades){
-            System.out.print(i + " ");
+            System.out.print(i + "\n");
         }
         System.out.println("\n");
     }

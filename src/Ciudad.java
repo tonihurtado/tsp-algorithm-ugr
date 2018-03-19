@@ -30,7 +30,7 @@ public class Ciudad {
     }
 
     public void getString(){
-       System.out.println( _tag + _x + _y );
+       System.out.println( _x + " " + _y );
     }
 
     public double calcularDistancia(Ciudad ciudad){

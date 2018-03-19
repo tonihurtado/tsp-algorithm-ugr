@@ -77,4 +77,10 @@ public class Problema {
 
         return coste;
     }
+
+    public void getSolucion(Ruta r){
+       for(int c : r.getRuta()){
+           listaCiudades.get(c-1).getString();
+       }
+    }
 }
