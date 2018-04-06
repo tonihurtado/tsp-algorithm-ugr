@@ -19,14 +19,10 @@ public class Problema {
 
         //LEER NCITIES
         scanner.next();
-        System.out.println("Introduce el numero de ciudades: ");
         n = scanner.nextInt();
 
         p = new Problema(n);
         p.nCities = n;
-
-        System.out.println("Introduce la lista de ciudades: ");
-
 
         //LEER CIUDADES
 

@@ -9,7 +9,7 @@ public class TSP {
 
     public static void main(String args[]) throws FileNotFoundException {
 
-        Scanner scanner = new Scanner(new File("examples/KROA200.tsp"));
+        Scanner scanner = new Scanner(new File("examples/berlin52.tsp"));
 
         Problema p = Problema.leerCiudades(scanner);
         HeuristicaVecinoMasCercano h = new HeuristicaVecinoMasCercano(p);
