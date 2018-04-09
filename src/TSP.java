@@ -24,7 +24,7 @@ public class TSP {
             }
         }
 
-        System.out.println("Mejor Ruta encontrada utilizando " + algo);
+        System.out.println("Mejor Ruta encontrada utilizando " + algo +"\n");
 
         for (String arg : args){
             switch (arg){

@@ -33,8 +33,8 @@ public class HeuristicaIntercambioAristas {
 
         do{
             minimoCambio = 0;
-            for(int i=0; i < ruta.getnCiudades()-2; i++){
-                for (int j= i+2; j < ruta.getnCiudades()-2; j++){
+            for(int i=0; i < p.nCities-2; i++){
+                for (int j= i+2; j < p.nCities-1; j++){
                     cambio = p.getDistancia(i,j) + p.getDistancia(i+1,j+1) - p.getDistancia(i,i+1) - p.getDistancia(j,j+1);
                     if(minimoCambio > cambio){
                         minimoCambio = cambio;
@@ -44,11 +44,11 @@ public class HeuristicaIntercambioAristas {
                 }
             }
 
-            if(minimoCambio < 0){
+            if(minimoCambio < -0.01){
                 mejorRuta = intercambioAristas(mejorRuta,mini,minj);
                 System.out.println("minimocambio = " + minimoCambio);
             }
-        } while (minimoCambio < 0);
+        } while (minimoCambio < -0.01);
 
         return mejorRuta;
     }
