@@ -57,7 +57,7 @@ public class Problema {
         return nCities;
     }
 
-    private double getDistancia(int pos1, int pos2) {
+    public double getDistancia(int pos1, int pos2) {
         return matrix[pos1][pos2];
     }
 

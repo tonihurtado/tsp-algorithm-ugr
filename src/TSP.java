@@ -13,7 +13,18 @@ public class TSP {
 
         Problema p = Problema.leerCiudades(scanner);
         HeuristicaVecinoMasCercano h = new HeuristicaVecinoMasCercano(p);
+        HeuristicaIntercambioAristas ia = new HeuristicaIntercambioAristas(p);
         Ruta r = h.ObtenerMejorRuta();
+        String algo = "Algorithm 1 (Vecino mas Cercano) ";
+
+        for (String arg: args){
+            if (arg.equals("-algo2")){
+                r = ia.busquedaMejorRuta(r);
+                algo = "Algorithm 2 (Intercambio Aristas) ";
+            }
+        }
+
+        System.out.println("Mejor Ruta encontrada utilizando " + algo);
 
         for (String arg : args){
             switch (arg){
@@ -27,7 +38,6 @@ public class TSP {
                     System.out.println("MEJOR SOLUCIÓN: " + p.coste(r));
                     break;
                 default:
-                    System.out.println("Invalid argument.");
                     break;
             }
         }
