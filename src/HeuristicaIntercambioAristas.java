@@ -2,6 +2,15 @@
  * Created by Toni on 08/04/2018.
  */
 
+/**
+ * HEURISTICAINTERCAMBIOARISTAS: Clase suplementaria que mejora las rutas generadas con la heurística del
+ * vecino mas cercano inspeccionando la ruta en busca de modificaciones que reduzcan el coste. Para ello
+ * utiliza el algoritmo de intercambio de aristas
+ *
+ * Constructor:
+ * @param p problema a resolver mediante el algoritmo
+ */
+
 public class HeuristicaIntercambioAristas {
 
     private Problema p;
@@ -9,6 +18,16 @@ public class HeuristicaIntercambioAristas {
     public HeuristicaIntercambioAristas(Problema problema){
         p = problema;
     }
+
+    /**
+     * intercambioAristas: Algoritmo que dada una ruta y dos posiciones a cambiar de esta
+     * genera una nueva ruta invirtiendo las aristas, es decir, intercambiando la ruta entre
+     * i y j por los valores de j a i+1.
+     * @param ruta
+     * @param i
+     * @param j
+     * @return
+     */
 
     private Ruta intercambioAristas(Ruta ruta,int i,int j){
         Ruta nuevaRuta = new Ruta();
@@ -25,6 +44,14 @@ public class HeuristicaIntercambioAristas {
         return nuevaRuta;
     }
 
+    /**
+     * busquedaMejorRuta: Algoritmo que analiza la ruta en busca de posibles cambios que mejoren el coste
+     * en la ruta actual. Este finalizara cuando no haya cambios mejores.
+     *
+     * @param ruta
+     * @return
+     */
+
     public Ruta busquedaMejorRuta(Ruta ruta){
 
         Ruta mejorRuta = ruta;
@@ -35,7 +62,10 @@ public class HeuristicaIntercambioAristas {
             minimoCambio = 0;
             for(int i=0; i < p.nCities-2; i++){
                 for (int j= i+2; j < p.nCities-1; j++){
-                    cambio = p.getDistancia(i,j) + p.getDistancia(i+1,j+1) - p.getDistancia(i,i+1) - p.getDistancia(j,j+1);
+                    cambio = p.getDistancia(mejorRuta.getPosRuta(i),mejorRuta.getPosRuta(j)) +
+                             p.getDistancia(mejorRuta.getPosRuta(i+1),mejorRuta.getPosRuta(j+1)) -
+                             p.getDistancia(mejorRuta.getPosRuta(i),mejorRuta.getPosRuta(i+1)) -
+                             p.getDistancia(mejorRuta.getPosRuta(j),mejorRuta.getPosRuta(j+1));
                     if(minimoCambio > cambio){
                         minimoCambio = cambio;
                         mini = i;

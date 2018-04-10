@@ -1,9 +1,18 @@
 
-import java.util.Arrays;
-
 /**
  * Created by Toni on 15/03/2018.
  */
+
+import java.util.Arrays;
+
+/**
+ * HEURISTICAVECINOMASCERCANO: En esta clase se incluiran los métodos que resuelvan el problema
+ * mediante el calculo de un objeto Ruta.
+ *
+ * Constructor:
+ * @param p problema a resolver mediante el algoritmo
+        */
+
 public class HeuristicaVecinoMasCercano {
 
     private Problema p;
@@ -11,6 +20,13 @@ public class HeuristicaVecinoMasCercano {
     public HeuristicaVecinoMasCercano(Problema problema){
         p = problema;
     }
+
+    /**
+     * ObtenerMejorRuta: Función que ejecuta ObtenerRuta() desde todos los posible inicios, y busca
+     * la ruta con el menor coste posible.
+     *
+     * @return Ruta mejor ruta
+     */
 
     public Ruta ObtenerMejorRuta(){
 
@@ -29,6 +45,14 @@ public class HeuristicaVecinoMasCercano {
         }
         return best;
     }
+
+    /**
+     * ObtenerRuta: Función que utiliza la heurística del vecino más cercano para calcula la mejor ruta
+     * posible a partir de una posición de inicio init
+     *
+     * @param init inicio de la ruta.
+     * @return Ruta
+     */
 
     private Ruta ObtenerRuta(int init){
 
